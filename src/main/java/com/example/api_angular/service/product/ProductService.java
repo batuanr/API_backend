@@ -49,4 +49,9 @@ public class ProductService implements IProductService {
     public Boolean existsByName(String name) {
         return productRepository.existsByName(name);
     }
+
+    @Override
+    public Page<Product> findAllByNameContaining(String name, Pageable pageable) {
+        return productRepository.findAllByNameContaining(name, pageable);
+    }
 }

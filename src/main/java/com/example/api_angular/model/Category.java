@@ -1,6 +1,7 @@
 package com.example.api_angular.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,7 +17,7 @@ public class Category {
     private String name;
 
     @OneToMany(targetEntity = Product.class, cascade = CascadeType.ALL)
-    @JsonBackReference
+    @JsonIgnore
     private List<Product> products;
 
 

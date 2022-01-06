@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IProductRepository extends PagingAndSortingRepository<Product, Long> {
-    Page<Product> findAllByNameContaining(String firstName, Pageable pageable);
+    Page<Product> findAllByNameContaining(String name, Pageable pageable);
 
     Boolean existsByName (String name);
     Iterable<Product> findAllByOrderByIdDesc();

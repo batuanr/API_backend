@@ -13,5 +13,6 @@ public interface IProductService extends IGeneralService<Product> {
     Iterable<Product> findAll();
     Iterable<Product> findAllByOrderByIdDesc();
     Boolean existsByName (String name);
+    Page<Product> findAllByNameContaining(String name, Pageable pageable);
 
 }

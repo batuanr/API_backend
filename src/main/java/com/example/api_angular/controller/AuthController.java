@@ -8,6 +8,7 @@ import com.example.api_angular.model.Role;
 import com.example.api_angular.model.RoleName;
 import com.example.api_angular.model.User;
 import com.example.api_angular.security.jwt.JwtProvider;
+import com.example.api_angular.security.userprincal.UserDetailService;
 import com.example.api_angular.security.userprincal.UserPrinciple;
 import com.example.api_angular.service.impl.RoleServiceImpl;
 import com.example.api_angular.service.impl.UserServiceImpl;
@@ -39,6 +40,8 @@ public class AuthController {
     AuthenticationManager authenticationManager;
     @Autowired
     JwtProvider jwtProvider;
+    @Autowired
+    UserDetailService userDetailService;
     @PostMapping("/signup")
     public ResponseEntity<?> register(@Valid @RequestBody SignUpForm signUpForm){
         if(userService.existsByUsername(signUpForm.getUsername())){

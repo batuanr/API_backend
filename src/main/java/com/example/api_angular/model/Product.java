@@ -3,6 +3,8 @@ package com.example.api_angular.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -14,8 +16,8 @@ public class Product {
     private String name;
     private String avatar;
     @ManyToOne
-//    @JsonManagedReference
     private Category category;
+
 
 
 

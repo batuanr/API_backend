@@ -49,10 +49,13 @@ public class ProductRestController {
 //    public ResponseEntity<Iterable<Customer>> findAll(){
 //        return new ResponseEntity<>(customerService.findAll(), HttpStatus.OK);
 //    }
-//    @GetMapping
-//    public ResponseEntity<Page<Customer>> findAll(@PageableDefault(value = 5) Pageable pageable){
-//        return new ResponseEntity<>(customerService.findAll(pageable), HttpStatus.OK);
-//    }
+    @GetMapping("/page")
+    public ResponseEntity<Page<?>> findAll(@RequestParam ("name") String search, Pageable pageable){
+        if (search != ""){
+            return new ResponseEntity<>(productService.findAllByNameContaining(search, pageable), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(productService.findAll(pageable), HttpStatus.OK);
+    }
     @GetMapping
     public ResponseEntity<?> findAll(){
         return new ResponseEntity<>(productService.findAllByOrderByIdDesc(), HttpStatus.OK);
